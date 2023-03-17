@@ -2,3 +2,4 @@ node_modules
 dist
 tests
 __tests__
+pnpm-lock.yaml
