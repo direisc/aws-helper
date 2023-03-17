@@ -1,6 +1,6 @@
 {
   "name": "@codecarvalho/aws-helper",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Bundle of helpers for aws-sdk, just an idea for make helper to be useful and handle some cases for simplify developer life.",
   "private": false,
   "repository": "https://github.com/direisc/aws-helper",
