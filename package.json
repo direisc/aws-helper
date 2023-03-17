@@ -33,7 +33,7 @@
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
     },
-    "/sqs": {
+    "./sqs": {
       "types": "./dist/sqs/index.d.ts",
       "default": "./dist/sqs/index.ts"
     }
@@ -55,5 +55,8 @@
     "prettier": "^2.8.4",
     "ts-jest": "^29.0.5",
     "typescript": "^5.0.2"
+  },
+  "dependencies": {
+    "@codecarvalho/aws-helper": "^0.0.2"
   }
 }
