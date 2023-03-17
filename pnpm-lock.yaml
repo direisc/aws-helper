@@ -1,7 +1,6 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@codecarvalho/aws-helper': ^0.0.2
   '@types/aws-lambda': ^8.10.113
   '@types/jest': ^29.5.0
   '@types/node': ^18.15.3
@@ -18,9 +17,6 @@ specifiers:
   prettier: ^2.8.4
   ts-jest: ^29.0.5
   typescript: ^5.0.2
-
-dependencies:
-  '@codecarvalho/aws-helper': 0.0.2
 
 devDependencies:
   '@types/aws-lambda': 8.10.113
@@ -382,10 +378,6 @@ packages:
   /@bcoe/v8-coverage/0.2.3:
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
     dev: true
-
-  /@codecarvalho/aws-helper/0.0.2:
-    resolution: {integrity: sha512-T2Qk5bT5OLQwQBbXkSmzZnTWdb7MIP2lHc2UwYQY9VerCk5ZduMVGlKvsYEhXvseH38qfYuKEM+7Tt0dzY4ZEQ==}
-    dev: false
 
   /@eslint-community/eslint-utils/4.2.0_eslint@8.36.0:
     resolution: {integrity: sha512-gB8T4H4DEfX2IV9zGDJPOBgP1e/DbfCPDTtEqUMckpvzS1OYtva8JdFYBqMwYk7xAQ429WGF/UPqn8uQ//h2vQ==}

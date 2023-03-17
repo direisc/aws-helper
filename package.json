@@ -13,29 +13,36 @@
   "license": "MIT",
   "scripts": {
     "test": "jest --config jestconfig.json",
-    "build": "tsc",
+    "build:tsc": "tsc",
     "format": "npx prettier --write .",
     "lint": "npx eslint --fix . --ext .js,.ts",
-    "prepare": "npm run build",
+    "prepare": "npm run build:tsc",
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm run lint",
     "version": "npm run format && git add -A src",
-    "postversion": "git push && git push --tags"
+    "postversion": "git push && git push --tags",
+    "build": "pnpm build:types && pnpm build:esm && pnpm build:cjs",
+    "build:types": "tsc --declaration --emitDeclarationOnly --outDir dist/types",
+    "build:esm": "tsc --module es2015 --target es5 --outDir dist/esm",
+    "build:cjs": "tsc --module commonjs --target es5 --outDir dist/cjs",
+    "build:es2015": "tsc --module es2015 --target es2015 --outDir dist/es2015"
   },
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/cjs/index.js",
+  "types": "./dist/types/index.d.ts",
   "files": [
     "dist/**/*"
   ],
   "exports": {
     "./package.json": "./package.json",
     ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
     },
     "./sqs": {
-      "types": "./dist/sqs/index.d.ts",
-      "default": "./dist/sqs/index.ts"
+      "types": "./dist/types/sqs/index.d.ts",
+      "import": "./dist/esm/sqs/index.js",
+      "require": "./dist/cjs/sqs/index.ts"
     }
   },
   "devDependencies": {
@@ -55,8 +62,5 @@
     "prettier": "^2.8.4",
     "ts-jest": "^29.0.5",
     "typescript": "^5.0.2"
-  },
-  "dependencies": {
-    "@codecarvalho/aws-helper": "^0.0.2"
   }
 }
