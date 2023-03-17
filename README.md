@@ -21,6 +21,8 @@ _Can catch errors if are expected avoid throw errors, error indicating failure c
 @example
 
 ```typescript
+import { createSQSConsumerAllSettled } from '@codecarvalho/aws-helper'
+
 export const main = createSQSConsumerAllSettled(async (record) => {
   // don't need handle errors with try catch block
   const body = record.body
