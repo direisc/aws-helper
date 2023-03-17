@@ -1,4 +1,4 @@
-# aws-helper
+# @codecarvalho/aws-helper
 
 Bundle of helpers for aws-sdk, just an idea for make helper to be useful and handle some cases for simplify developer life.
 
