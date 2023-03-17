@@ -1,6 +1,6 @@
 {
   "name": "@codecarvalho/aws-helper",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
   "private": false,
   "repository": "https://github.com/direisc/aws-helper",
@@ -16,11 +16,11 @@
     "build": "tsc",
     "format": "npx prettier --write .",
     "lint": "npx eslint --fix . --ext .js,.ts",
-    "prepare" : "npm run build",
-    "prepublishOnly" : "npm test && npm run lint",
-    "preversion" : "npm run lint",
-    "version" : "npm run format && git add -A src",
-    "postversion" : "git push && git push --tags"
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
