@@ -1,0 +1,45 @@
+{
+  "name": "aws-helper",
+  "version": "0.0.2",
+  "description": "",
+  "private": false,
+  "repository": "https://github.com/direisc/aws-helper",
+  "keywords": [
+    "aws-helper",
+    "helper",
+    "aws"
+  ],
+  "author": "Diego Reis Carvalho",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "sqs": {
+      "types": "./dist/sqs/index.d.ts",
+      "default": "./dist/sqs/index.ts"
+    }
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.113",
+    "@types/node": "^18.15.3",
+    "typescript": "^5.0.2"
+  },
+  "prettier": {
+    "arrowParens": "always",
+    "trailingComma": "all",
+    "semi": true,
+    "printWidth": 80,
+    "singleQuote": false,
+    "tabWidth": 2,
+    "useTabs": false
+  }
+}
