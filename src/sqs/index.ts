@@ -1,1 +1,1 @@
-export * from './createSQSConsulerAllSettled'
+export * from './createSQSConsumerAllSettled'

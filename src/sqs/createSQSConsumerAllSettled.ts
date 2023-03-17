@@ -2,7 +2,7 @@ import { type SQSHandler, type SQSBatchItemFailure, type SQSRecord } from 'aws-l
 type Runner = (record: SQSRecord) => Promise<void>
 
 /**
- * createSQSConsulerAllSettled
+ * createSQSConsumerAllSettled
  * Create consumer with all needs to run SQS consumer and a batch failure
  *
  * Can catch errors if are expected avoid throw errors,
@@ -10,13 +10,13 @@ type Runner = (record: SQSRecord) => Promise<void>
  *
  * @example
  * ```
- * export const main = createSQSConsulerAllSettled(async (record) => {
+ * export const main = createSQSConsumerAllSettled(async (record) => {
  *   // TODO Implementation for consume message record
  *   // don't need handle errors with try catch block
  * })
  * ```
  */
-export const createSQSConsulerAllSettled =
+export const createSQSConsumerAllSettled =
   (runner: Runner): SQSHandler =>
   async (event, _context) => {
     const processResponse = await Promise.allSettled(
