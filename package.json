@@ -13,10 +13,9 @@
   "license": "MIT",
   "scripts": {
     "test": "jest --config jestconfig.json",
-    "build:tsc": "tsc",
     "format": "npx prettier --write .",
     "lint": "npx eslint --fix . --ext .js,.ts",
-    "prepare": "npm run build:tsc",
+    "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm run lint",
     "version": "npm run format && git add -A src",
