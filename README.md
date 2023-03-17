@@ -8,6 +8,28 @@ Sometimes we expected reduce a number of times we type the same code again and a
 
 Principal idea here is solve that "issue" with some Helpers or Factories to reduce number of lines on my own code, maybe that are helpful for you too.
 
-## What are included?
+# What are included?
 
-???
+## createSQSConsumerAllSettled
+
+Create consumer with all needs to run SQS consumer and a batch failure.
+
+_Can catch errors if are expected avoid throw errors, error indicating failure couldn't catching._
+
+**⚠ SQS trigger with lambda require set Report Batch Item Failures**
+
+@example
+
+```typescript
+export const main = createSQSConsumerAllSettled(async (record) => {
+  // don't need handle errors with try catch block
+  const body = record.body
+  if (body === undefined || body.trim().length === 0) {
+    // Process with failure, but don't need retry
+    console.error('Record body is empty')
+    return
+  }
+  // TODO Implementation for consume message record
+  console.log('Process Record:', body)
+})
+```
