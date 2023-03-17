@@ -1,10 +1,11 @@
 {
   "name": "@codecarvalho/aws-helper",
   "version": "0.0.6",
-  "description": "",
+  "description": "Bundle of helpers for aws-sdk, just an idea for make helper to be useful and handle some cases for simplify developer life.",
   "private": false,
   "repository": "https://github.com/direisc/aws-helper",
   "keywords": [
+    "@codecarvalho",
     "aws-helper",
     "helper",
     "aws"
@@ -20,7 +21,7 @@
     "preversion": "npm run lint",
     "version": "npm run format && git add -A src",
     "postversion": "git push && git push --tags",
-    "build": "pnpm build:types && pnpm build:esm && pnpm build:cjs",
+    "build": "rm -rf dist && pnpm build:types && pnpm build:esm && pnpm build:cjs",
     "build:types": "tsc --declaration --emitDeclarationOnly --outDir dist/types",
     "build:esm": "tsc --module es2015 --target es5 --outDir dist/esm",
     "build:cjs": "tsc --module commonjs --target es5 --outDir dist/cjs",
