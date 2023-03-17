@@ -33,7 +33,7 @@
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
     },
-    "sqs": {
+    "/sqs": {
       "types": "./dist/sqs/index.d.ts",
       "default": "./dist/sqs/index.ts"
     }
