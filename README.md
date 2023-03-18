@@ -34,11 +34,11 @@ Configurable handler with `CreateSQSHandlerConfig`
 **⚠ Default configuration with:⚠** `reportBatchItemFailures = true`
 
 @example
+
 ```typescript
 import { createSQSHandler } from '@codecarvalho/aws-helper'
 
-export const main = createSQSHandler(
-async (record) => {
+export const main = createSQSHandler(async (record) => {
   // don't need handle errors with try catch block
   const body = record.body
   if (body === undefined || body.trim().length === 0) {
@@ -48,8 +48,7 @@ async (record) => {
   }
   // TODO Implementation for consume message record
   console.log('Process Record:', body)
-},
-)
+})
 ```
 
 ## createSQSHandlerWithReportFailure
@@ -59,6 +58,7 @@ Create handler to consume SQS with report batch failure.
 **⚠ SQS trigger with lambda require set Report Batch Item Failures ⚠**
 
 @example
+
 ```typescript
 import { createSQSHandlerWithReportFailure } from '@codecarvalho/aws-helper'
 
@@ -82,11 +82,11 @@ Create handler to consume SQS without report batch failure.
 Manage message programmatically, remove from queue on failure.
 
 @example
+
 ```typescript
 import { createSQSHandlerWithoutReportFailure } from '@codecarvalho/aws-helper'
 
-export const main = createSQSHandlerWithoutReportFailure(
-async (record) => {
+export const main = createSQSHandlerWithoutReportFailure(async (record) => {
   // don't need handle errors with try catch block
   const body = record.body
   if (body === undefined || body.trim().length === 0) {
@@ -96,6 +96,5 @@ async (record) => {
   }
   // TODO Implementation for consume message record
   console.log('Process Record:', body)
-}
-)
+})
 ```
