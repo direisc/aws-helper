@@ -43,6 +43,11 @@
       "types": "./dist/types/sqs/index.d.ts",
       "import": "./dist/esm/sqs/index.js",
       "require": "./dist/cjs/sqs/index.ts"
+    },
+    "./lambda": {
+      "types": "./dist/types/lambda/index.d.ts",
+      "import": "./dist/esm/lambda/index.js",
+      "require": "./dist/cjs/lambda/index.ts"
     }
   },
   "devDependencies": {
@@ -62,5 +67,8 @@
     "prettier": "^2.8.4",
     "ts-jest": "^29.0.5",
     "typescript": "^5.0.2"
+  },
+  "dependencies": {
+    "@aws-sdk/client-sqs": "^3.294.0"
   }
 }

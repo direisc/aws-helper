@@ -8,22 +8,61 @@ Sometimes we expected reduce a number of times we type the same code again and a
 
 Principal idea here is solve that "issue" with some Helpers or Factories to reduce number of lines on my own code, maybe that are helpful for you too.
 
+## Install and usage
+
+```bash
+npm add @codecarvalho/aws-helper --save
+# or
+yarn add @codecarvalho/aws-helper
+# or
+pnpm add @codecarvalho/aws-helper
+```
+
+Another entry points:
+
+- `@codecarvalho/aws-helper/sqs`
+- `@codecarvalho/aws-helper/lambda`
+
 # What are included?
 
-## createSQSConsumerAllSettled
+## createSQSHandler
 
-Create consumer with all needs to run SQS consumer and a batch failure.
+Create handler to consume SQS.
 
-_Can catch errors if are expected avoid throw errors, error indicating failure couldn't catching._
+Configurable handler with `CreateSQSHandlerConfig`
 
-**⚠ SQS trigger with lambda require set Report Batch Item Failures**
+**⚠ Default configuration with:⚠** `reportBatchItemFailures = true`
 
 @example
-
 ```typescript
-import { createSQSConsumerAllSettled } from '@codecarvalho/aws-helper'
+import { createSQSHandler } from '@codecarvalho/aws-helper'
 
-export const main = createSQSConsumerAllSettled(async (record) => {
+export const main = createSQSHandler(
+async (record) => {
+  // don't need handle errors with try catch block
+  const body = record.body
+  if (body === undefined || body.trim().length === 0) {
+    // Process with failure, but don't need retry
+    console.error('Record body is empty')
+    return
+  }
+  // TODO Implementation for consume message record
+  console.log('Process Record:', body)
+},
+)
+```
+
+## createSQSHandlerWithReportFailure
+
+Create handler to consume SQS with report batch failure.
+
+**⚠ SQS trigger with lambda require set Report Batch Item Failures ⚠**
+
+@example
+```typescript
+import { createSQSHandlerWithReportFailure } from '@codecarvalho/aws-helper'
+
+export const main = createSQSHandlerWithReportFailure(async (record) => {
   // don't need handle errors with try catch block
   const body = record.body
   if (body === undefined || body.trim().length === 0) {
@@ -34,4 +73,29 @@ export const main = createSQSConsumerAllSettled(async (record) => {
   // TODO Implementation for consume message record
   console.log('Process Record:', body)
 })
+```
+
+## createSQSHandlerWithoutReportFailure
+
+Create handler to consume SQS without report batch failure.
+
+Manage message programmatically, remove from queue on failure.
+
+@example
+```typescript
+import { createSQSHandlerWithoutReportFailure } from '@codecarvalho/aws-helper'
+
+export const main = createSQSHandlerWithoutReportFailure(
+async (record) => {
+  // don't need handle errors with try catch block
+  const body = record.body
+  if (body === undefined || body.trim().length === 0) {
+    // Process with failure, but don't need retry
+    console.error('Record body is empty')
+    return
+  }
+  // TODO Implementation for consume message record
+  console.log('Process Record:', body)
+}
+)
 ```
